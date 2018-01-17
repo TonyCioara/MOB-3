@@ -29,11 +29,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 let jsonRobots = try? JSONDecoder().decode([Robot].self, from: data)
                 if let robots = jsonRobots {
                     self.robots = robots
+                    for robot in robots {
+                        print(robot)
+                    }
                 }
             } catch {
                 print("caught")
             }
         }
+        self.robotTableView.delegate = self
+        self.robotTableView.dataSource = self
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,8 +51,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.nameLabel.text = robot.name
         cell.personalityLabel.text = robot.personality
         cell.phraseLabel.text = robot.phrase
-//        let robotImage = UIImage(imageNamed:)
+        
+        let url = URL(string: robot.image)
+        do {
+            let data = try Data(contentsOf: url!)
+            cell.robotImage.image = UIImage(data: data)
+        } catch {
+            print("error")
+        }
+        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
 
     override func didReceiveMemoryWarning() {
