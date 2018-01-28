@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		21059079201944A70069D75C /* PreviewImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21059078201944A70069D75C /* PreviewImageCell.swift */; };
+		210A3663201E7C48007E9280 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210A3662201E7C48007E9280 /* CollectionViewController.swift */; };
 		2155E2AE2016A16700EFE483 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2155E2AD2016A16700EFE483 /* AppDelegate.swift */; };
 		2155E2B02016A16700EFE483 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2155E2AF2016A16700EFE483 /* ViewController.swift */; };
 		2155E2B32016A16700EFE483 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2155E2B12016A16700EFE483 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		21059078201944A70069D75C /* PreviewImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewImageCell.swift; sourceTree = "<group>"; };
+		210A3662201E7C48007E9280 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		2155E2AA2016A16700EFE483 /* Project-Document-Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project-Document-Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2155E2AD2016A16700EFE483 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2155E2AF2016A16700EFE483 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				2155E2AD2016A16700EFE483 /* AppDelegate.swift */,
+				210A3662201E7C48007E9280 /* CollectionViewController.swift */,
 				2155E2AF2016A16700EFE483 /* ViewController.swift */,
 				21059078201944A70069D75C /* PreviewImageCell.swift */,
 				2155E2BF2016A23D00EFE483 /* Networking.swift */,
@@ -227,6 +230,7 @@
 				2155E2B02016A16700EFE483 /* ViewController.swift in Sources */,
 				21059079201944A70069D75C /* PreviewImageCell.swift in Sources */,
 				2155E2AE2016A16700EFE483 /* AppDelegate.swift in Sources */,
+				210A3663201E7C48007E9280 /* CollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

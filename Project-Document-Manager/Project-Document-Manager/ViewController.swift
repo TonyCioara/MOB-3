@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Zip
 
 struct ImageCollection {
     var collectionName: String
@@ -42,7 +43,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Do any additional setup after loading the view, typically from a nib.
         
         getImageCollection()
-        self.downloadAndUnzipFiles()
         self.tableView.delegate = self
         self.tableView.dataSource = self
 
@@ -53,6 +53,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             DispatchQueue.main.async {
                 if let jsonImageCollections = try? JSONDecoder().decode([ImageCollection].self, from: data) {
                     self.imageCollections = jsonImageCollections
+                    self.downloadAndUnzipFiles()
                     self.tableView.reloadData()
                 }
             }
@@ -103,14 +104,43 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             })
         }
     }
+    
+    func loadImage(fileURL: URL?) -> UIImage? {
+        do {
+            guard let fileURL = fileURL else {return nil}
+            
+//            gets data from the url
+            let imageData = try Data(contentsOf: fileURL)
+            
+            return UIImage(data: imageData)
+        } catch {
+            print("Error loading image: \(error)")
+        }
+        return nil
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "previewImageCell", for: indexPath) as! PreviewImageCell
         cell.titleLabel.text = imageCollections[indexPath.row].collectionName
+        
+//        load image from a file url
+        cell.previewImageView.image = loadImage(fileURL: imageCollections[indexPath.row].unzippedImagesURL?.appendingPathComponent("_preview.png"))
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.imageCollections.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let collectionVC = storyboard?.instantiateViewController(withIdentifier: "collectionVC") as! CollectionViewController
+        collectionVC.unzippedImageURL = imageCollections[indexPath.row].unzippedImagesURL
+        collectionVC.collectionTitle = imageCollections[indexPath.row].collectionName
+        navigationController?.pushViewController(collectionVC, animated: true)
+        
+        print("GOT HERE")
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

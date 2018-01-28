@@ -11,5 +11,6 @@ import UIKit
 
 class PreviewImageCell: UITableViewCell {
     
+    @IBOutlet weak var previewImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
 }

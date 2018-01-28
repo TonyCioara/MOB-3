@@ -37,9 +37,14 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yNP-ip-i9d">
+                                                    <rect key="frame" x="271" y="0.0" width="89" height="89"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="previewImageView" destination="yNP-ip-i9d" id="WkK-Mw-6UN"/>
                                             <outlet property="titleLabel" destination="moB-uO-aoq" id="6SC-Ix-7ms"/>
                                         </connections>
                                     </tableViewCell>
@@ -51,11 +56,27 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="1qJ-0j-c1s" id="uO9-P5-X0m"/>
+                        <segue destination="aSK-n9-fgk" kind="show" identifier="toCollectionView" id="MrI-Tr-Gqo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
+        </scene>
+        <!--Collection View Controller-->
+        <scene sceneID="Is0-TT-7dh">
+            <objects>
+                <viewController storyboardIdentifier="collectionVC" id="aSK-n9-fgk" customClass="CollectionViewController" customModule="Project_Document_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="N01-Tm-P7A">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="7Vy-BU-bNe"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DOr-FI-6fm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="948" y="133"/>
         </scene>
     </scenes>
 </document>
