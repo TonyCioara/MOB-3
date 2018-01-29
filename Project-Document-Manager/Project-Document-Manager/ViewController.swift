@@ -125,7 +125,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
 //        load image from a file url
         cell.previewImageView.image = loadImage(fileURL: imageCollections[indexPath.row].unzippedImagesURL?.appendingPathComponent("_preview.png"))
-        
         return cell
     }
     
@@ -136,11 +135,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         let collectionVC = storyboard?.instantiateViewController(withIdentifier: "collectionVC") as! CollectionViewController
-        collectionVC.unzippedImageURL = imageCollections[indexPath.row].unzippedImagesURL
+        collectionVC.unzippedImagesURL = imageCollections[indexPath.row].unzippedImagesURL
         collectionVC.collectionTitle = imageCollections[indexPath.row].collectionName
         navigationController?.pushViewController(collectionVC, animated: true)
         
-        print("GOT HERE")
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
