@@ -15,6 +15,8 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
     
     var unzippedImagesURL: URL?
     var collectionTitle: String?
+    let fileManager = FileManager.default
+    var files = [URL]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,10 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         print(collectionTitle!)
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
+        
+        let files = try? fileManager.contentsOfDirectory(at: unzippedImagesURL!, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
+        self.files = files!
+        
     }
     
     func loadImage(fileURL: URL?) -> UIImage? {
@@ -40,14 +46,12 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9
+        return files.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! CollectionViewCell
-        let pathComponent = String(indexPath.row + 1) + ".jpg"
-//        print(self.unzippedImagesURL?.appendingPathComponent(pathComponent))
-        cell.imageView.image = loadImage(fileURL: self.unzippedImagesURL?.appendingPathComponent(pathComponent))
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! CollectionViewCell
+        cell.imageView.image = loadImage(fileURL: files[indexPath.row])
         return cell
     }
 }

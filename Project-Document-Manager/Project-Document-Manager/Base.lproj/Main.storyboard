@@ -18,9 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1qJ-0j-c1s">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1qJ-0j-c1s">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="previewImageCell" rowHeight="90" id="HqT-AW-YZp" customClass="PreviewImageCell" customModule="Project_Document_Manager" customModuleProvider="target">
@@ -37,11 +36,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yNP-ip-i9d">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yNP-ip-i9d">
                                                     <rect key="frame" x="271" y="0.0" width="89" height="89"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="yNP-ip-i9d" secondAttribute="trailing" constant="5" id="Bfh-Nx-Q2S"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="previewImageView" destination="yNP-ip-i9d" id="WkK-Mw-6UN"/>
@@ -52,6 +53,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="1qJ-0j-c1s" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="MDq-Fv-dhJ"/>
+                            <constraint firstItem="1qJ-0j-c1s" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="bm8-1R-ez8"/>
+                            <constraint firstItem="1qJ-0j-c1s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="iaO-CR-agz"/>
+                            <constraint firstItem="1qJ-0j-c1s" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="mAd-S8-ZmZ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="JSx-EK-vpZ"/>
@@ -72,9 +79,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QWz-2c-VhR">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QWz-2c-VhR">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Tzs-Xe-azE">
                                     <size key="itemSize" width="104" height="104"/>
@@ -110,6 +116,12 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QWz-2c-VhR" firstAttribute="bottom" secondItem="7Vy-BU-bNe" secondAttribute="bottom" id="PW7-QK-Pua"/>
+                            <constraint firstItem="QWz-2c-VhR" firstAttribute="trailing" secondItem="7Vy-BU-bNe" secondAttribute="trailing" id="da7-6z-z4v"/>
+                            <constraint firstItem="QWz-2c-VhR" firstAttribute="top" secondItem="7Vy-BU-bNe" secondAttribute="top" id="tjP-UA-ncE"/>
+                            <constraint firstItem="QWz-2c-VhR" firstAttribute="leading" secondItem="7Vy-BU-bNe" secondAttribute="leading" id="zhk-m6-BX3"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="7Vy-BU-bNe"/>
                     </view>
                     <connections>
