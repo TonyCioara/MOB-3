@@ -33,7 +33,7 @@ class AddInventoryViewController: UIViewController {
     
     @IBAction func savePressed(_ sender: Any) {
         
-        guard let name = inventoryNameField.text, let quantity = Int64(inventoryQuantityField.text!) else {return}
+        guard let name = inventoryNameField.text,let quantity = Int64(inventoryQuantityField.text!) else {return}
         if let inventory = self.inventory {
             inventory.name = name
             inventory.quantity = quantity
